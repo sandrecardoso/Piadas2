@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "260001745544",
+    "firebase_url": "https://piadas2-78402.firebaseio.com",
+    "project_id": "piadas2-78402",
+    "storage_bucket": "piadas2-78402.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260001745544:android:8bae795a26b31454",
+        "android_client_info": {
+          "package_name": "piadas.sandrecardoso.acer.piadas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260001745544-kmnnbreqm8cld8o18tbin7d5lcokfttn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "piadas.sandrecardoso.acer.piadas",
+            "certificate_hash": "aa69285205bb3294c1d190821a3aaa387fd3a410"
+          }
+        },
+        {
+          "client_id": "260001745544-4s3mteaj2eo06d3jk9fvpkg371svf580.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCscksF8PWVDMGi0cWx-g2ZIFS0GgOrP6E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260001745544-4s3mteaj2eo06d3jk9fvpkg371svf580.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
