@@ -2,7 +2,7 @@ package piadas.sandrecardoso.acer.piadas;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
+import android.support.v7.widget.ShareActionProvider;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<Pessoa> arrayAdapterPessoa;
     private AdView mAdView;
     Pessoa pessoaSelecionada;
+    ShareActionProvider mShareActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,15 +83,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void inicialiarfirebase() {
         FirebaseApp.initializeApp(MainActivity.this);
-        firebaseDatabase=FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseDatabase.setPersistenceEnabled(true);
-        databaseReference=firebaseDatabase.getReference();
-    }
+        databaseReference = firebaseDatabase.getReference();
 
+    }
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
-        return super.onCreateOptionsMenu(menu);
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_main, menu);
+        MenuItem shareItem = menu.findItem(R.id.action_share);
+        mShareActionProvider = (ShareActionProvider)
+                MenuItemCompat.getActionProvider(shareItem);
+        String texto = getString(R.string.texto_compartilhar);
+        Intent it = new Intent(Intent.ACTION_SEND);
+        it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        it.setType("text/plain");
+        it.putExtra(Intent.EXTRA_TEXT, texto);
+        mShareActionProvider.setShareIntent(it);
     }
 
     @Override
@@ -110,14 +120,10 @@ public class MainActivity extends AppCompatActivity {
            p.setEmail(email.getText().toString().trim());
            databaseReference.child("Pessoa").child(p.getUid()).setValue(p);
            limparCampos();
-       }else if (id==R.id.delete){
-           Pessoa p=new Pessoa();
-           p.setUid(pessoaSelecionada.getUid());
-           databaseReference.child("Pessoa").child(p.getUid()).removeValue();
-           limparCampos();
-       }else if (id==R.id.fechar){
+       } else if (id==R.id.fechar){
            finish();
        }
+
         return true;
     }
 

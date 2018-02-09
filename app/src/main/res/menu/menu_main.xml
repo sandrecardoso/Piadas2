@@ -9,14 +9,14 @@
         android:title="Atualizar"
         android:icon="@mipmap/ic_save"
         app:showAsAction="always"/>
-    <item android:id="@+id/delete"
-        android:icon="@mipmap/ic_delete"
-        android:title="Delete"
-        app:showAsAction="always" />
     <item android:id="@+id/fechar"
         android:title="Fechar"
         android:icon="@mipmap/ic_fechar"
         app:showAsAction="always"/>
-
+    <item android:id="@+id/action_share"
+        android:title="@string/acao_compartilhar"
+        app:showAsAction="ifRoom"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
+        />
 
 </menu>
