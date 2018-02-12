@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/novo"
-        android:title="Novo"
+    <item
+        android:id="@+id/novo"
         android:icon="@mipmap/ic_novo"
+        android:title="Novo"
+        android:visible="true"
         app:showAsAction="always" />
-    <item android:id="@+id/atualizar"
-        android:title="Atualizar"
-        android:icon="@mipmap/ic_save"
-        app:showAsAction="always"/>
-    <item android:id="@+id/fechar"
-        android:title="Fechar"
-        android:icon="@mipmap/ic_fechar"
-        app:showAsAction="always"/>
-    <item android:id="@+id/action_share"
-        android:title="@string/acao_compartilhar"
-        app:showAsAction="ifRoom"
-        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
-        />
 
+    <item
+        android:id="@+id/atualizar"
+        android:icon="@mipmap/ic_refresh"
+        android:title="Atualizar"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/sobre"
+        android:icon="@drawable/ic_account_box_black_24dp"
+        android:title="@string/sobre"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item android:id="@+id/fechar"
+        android:icon="@mipmap/ic_fechar"
+        android:title="Fechar"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
 </menu>

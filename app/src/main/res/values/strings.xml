@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Piadas</string>
     <string name="banner_ad_unit_id">ca-app-pub-5460176529465753/1195006683</string>
-    <string name="acao_compartilhar" />
+    <string name="sobre">About</string>
+    <string name="fechar">Close</string>
 
 </resources>

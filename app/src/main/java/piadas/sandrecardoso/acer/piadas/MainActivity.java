@@ -1,14 +1,16 @@
 package piadas.sandrecardoso.acer.piadas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ShareActionProvider;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ShareActionProvider;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -27,15 +29,18 @@ import java.util.UUID;
 import piadas.sandrecardoso.acer.piadas.modelo.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
-    EditText nome,email;
-    ListView listView;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+    private EditText nome;
+    private EditText email;
+    private ListView listView;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
     private List<Pessoa> listPessoa=new ArrayList<Pessoa>();
     private ArrayAdapter<Pessoa> arrayAdapterPessoa;
     private AdView mAdView;
-    Pessoa pessoaSelecionada;
+    private Pessoa pessoaSelecionada;
     ShareActionProvider mShareActionProvider;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,18 +94,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_main, menu);
-        MenuItem shareItem = menu.findItem(R.id.action_share);
-        mShareActionProvider = (ShareActionProvider)
-                MenuItemCompat.getActionProvider(shareItem);
-        String texto = getString(R.string.texto_compartilhar);
-        Intent it = new Intent(Intent.ACTION_SEND);
-        it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-        it.setType("text/plain");
-        it.putExtra(Intent.EXTRA_TEXT, texto);
-        mShareActionProvider.setShareIntent(it);
+    public boolean onCreateOptionsMenu( Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+
     }
 
     @Override
@@ -122,6 +119,9 @@ public class MainActivity extends AppCompatActivity {
            limparCampos();
        } else if (id==R.id.fechar){
            finish();
+       } else if (id==R.id.sobre){
+           Intent intent=new Intent(MainActivity.this,Sobre.class);
+           startActivity(intent);
        }
 
         return true;
