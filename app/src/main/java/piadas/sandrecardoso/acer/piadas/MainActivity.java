@@ -2,6 +2,7 @@ package piadas.sandrecardoso.acer.piadas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.ShareActionProvider;
+import android.support.v7.widget.ShareActionProvider;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -96,7 +97,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu( Menu menu){
         getMenuInflater().inflate(R.menu.menu_main,menu);
-        return true;
+        MenuItem shareItem=menu.findItem(R.id.action_share);
+        mShareActionProvider=(ShareActionProvider)MenuItemCompat.getActionProvider(shareItem);
+        String texto=getString(R.string.texto_compartilhar);
+        Intent it=new Intent(Intent.ACTION_SEND);
+        it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        it.setType("text/plain");
+        it.putExtra(Intent.EXTRA_TEXT,texto);
+        mShareActionProvider.setShareIntent(it);
+        return super.onCreateOptionsMenu(menu);
 
     }
 
@@ -110,14 +119,8 @@ public class MainActivity extends AppCompatActivity {
            p.setEmail(email.getText().toString());
            databaseReference.child("Pessoa").child(p.getUid()).setValue(p);
            limparCampos();
-       }else if (id==R.id.atualizar){
-           Pessoa p=new Pessoa();
-           p.setUid(pessoaSelecionada.getUid());
-           p.setNome(nome.getText().toString().trim());
-           p.setEmail(email.getText().toString().trim());
-           databaseReference.child("Pessoa").child(p.getUid()).setValue(p);
-           limparCampos();
-       } else if (id==R.id.fechar){
+       }
+        else if (id==R.id.fechar){
            finish();
        } else if (id==R.id.sobre){
            Intent intent=new Intent(MainActivity.this,Sobre.class);

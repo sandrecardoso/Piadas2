@@ -10,11 +10,12 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_gravity="start"
         android:layout_marginEnd="31dp"
         android:layout_marginStart="31dp"
         android:layout_marginTop="7dp"
         android:background="@android:color/background_dark"
-        android:text="If you click on more you add the joke to the database, if you click on the less you delete from the bank just select the joke you added to delete or update !!! Developer: Sandré Cardoso"
+        android:text="Para adicionar a sua piada digite no titulo e o texto e depois clique em mais!!!Developer:Sandré Cardoso"
         android:textAlignment="textStart"
         android:textColor="@android:color/holo_blue_bright"
         android:textSize="24sp"
@@ -22,8 +23,7 @@
         app:layout_constraintBottom_toTopOf="@+id/voltar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_gravity="start" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/voltar"

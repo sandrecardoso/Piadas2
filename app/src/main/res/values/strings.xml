@@ -3,5 +3,8 @@
     <string name="banner_ad_unit_id">ca-app-pub-5460176529465753/1195006683</string>
     <string name="sobre">About</string>
     <string name="fechar">Close</string>
+    <string name="acao_compartilhar" >Compartilhar</string>
+    <string name="texto_compartilhar">Baixe esse app de piadas!!!Você vai adorar!!!</string>
+    <string name="texto">Para adicionar uma piada digite o titulo e o texto e clique em mais!!!</string>
 
 </resources>

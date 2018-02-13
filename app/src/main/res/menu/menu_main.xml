@@ -10,17 +10,17 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/atualizar"
-        android:icon="@mipmap/ic_refresh"
-        android:title="Atualizar"
-        android:visible="true"
-        app:showAsAction="always" />
-    <item
         android:id="@+id/sobre"
         android:icon="@drawable/ic_account_box_black_24dp"
         android:title="@string/sobre"
         android:visible="true"
         app:showAsAction="always" />
+    <item android:id="@+id/action_share"
+        android:title="@string/acao_compartilhar"
+        android:icon="@drawable/ic_share_black_24dp"
+        app:showAsAction="ifRoom"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
+
     <item android:id="@+id/fechar"
         android:icon="@mipmap/ic_fechar"
         android:title="Fechar"
